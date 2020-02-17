@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+
+
+    {# ça marche avec cette méthode , car le name de la form ne veux pas changer.
+
+        <div class="container login">
+            <h1> Formulaire de connexion </h1>
+            <div>
+                {{ form_start(form) }}
+                {{ form_row(form.email, {'atrr' : {  'name':'_username'}}) }}
+                {{ form_row(form.hash , {'attr': { 'label':'Password', 'name':'_password'}}) }}
+                <button class="form-control" type="submit">Se connecter</button>
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+        #}
+    <div class="container">
+
+    </div>
+    <form action="{{ path('account_login') }}" method="post" class="form-group">
+    <div class="container">
+        <h1> Formulaire de connexion </h1>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" value="{{ username }}" type="text" name="_username" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="_password" class="form-control">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary">Se connecter</button>
+            {% if hasError %}
+               <div class="alert alert-danger"><p> Votre mot de passe ou/et email est incorrect.</p> </div>
+            {% for error in hasError  %}
+                {{ error }}
+            {% endfor %}
+            {% endif %}
+        </div>
+
+
+    </div>
+    </form>
+{% endblock %}
+
+{#
+pour s'identifier sur symfony , que ce qu'on va utiiser !!! aha :) donc :
+à la racine, dans le dossier config , on trouve le dossier packages , dans le quel on trouvera aussi le fichier
+security.yaml , comme son nom l'indique c'est fichiern de securité .
+ 1) au dessus on trouve tout d'abord la manière
+ security
+    encoders:
+        App\Entity\User:
+            algorithm : bcrypt
+de hasher le mot de passe , en dessous de security , on instaure le service encorders , sous le quel  on doit
+mentionner d'abords l'entity ou se trouve l'element a encoder , aprés en dessous de l'entity l'algorithm a utilisé ,
+dans notre cas , ca sera , App\Entity\User et bcrypt.
+
+2) aprés c'est au tour de l'identification , on créer une formulaire aprés avoir créer un fichierCOntrolelr pour
+mener les acations de login et logout . dans la partie providers , qui veux dire fournisseurs d'lements d'identification
+on créer nores provider qu'on va appelé users ,
+
+providers:
+        users:
+            entity:
+                class : App\Entity\User
+                property: email
+
+
+firewalls:
+        main:
+
+
+
+#}

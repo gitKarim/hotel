@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+{% block title %} {{ annonce.title }}{% endblock %}
+
+{% block body %}
+
+    <div class=" annonce_detail container">
+        <div class="intro">
+            <div class="container">
+                <div class="row">
+
+                    <!-- Intro Content -->
+                    <div class="col-lg-5 intro_col">
+                        <div class="intro_container d-flex flex-column align-items-start justify-content-center magic_up">
+                            <div class="intro_content">
+                                <div class="section_title_container">
+                                    <div class="section_subtitle">luxury resort</div>
+                                    <div class="section_title"><h2>A propos de {{ annonce.title }}</h2></div>
+                                </div>
+                                <div class="intro_text">
+                                    <p> {{ annonce.content }}</p></div>
+                                <div class="intro_link"><a
+                                            href="{{ path('annonce_edition', { 'slug':  annonce.slug  }) }}">Modifier
+                                        l'annonce</a></div>
+                                <a href="#" class="button_container intro_button">
+                                    <div class="button text-center"><span>réserver maintenant</span></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Intro Image -->
+                    <div class="col-lg-7 intro_col">
+                        <div class="intro_image magic_up">
+                            <!-- Image credit: https://unsplash.com/@ibrahimboran -->
+                            <img class="img-detail" src="{{ annonce.coverImage }}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                {% for image in annonce.images %}
+                    <li data-target="#carouselExampleCaptions"
+                        data-slide-to="{{ loop.index0 }}" {% if loop.first %} class="active" {% endif %}></li>
+                {% endfor %}
+            </ol>
+            <div class="carousel-inner">
+                {% for image in annonce.images %}
+                    <div class="carousel-item {% if loop.first %}  active {% endif %}">
+                        <img src="{{ image.url }}" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>{{ image.name }}</h5>
+                            <p>{{ image.caption }}</p>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+{% endblock %}

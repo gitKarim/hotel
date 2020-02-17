@@ -1,0 +1,22 @@
+{%  extends 'base.html.twig'  %}
+
+{% block title %} Edition de l'annonce  {% endblock %}
+
+{% block body %}
+    <div class="container new">
+        <h2>Edition de l'annonce {{ annonce.title }}</h2>
+        <div class="formulaire">
+            {{ form_start(formAnnonce) }}
+            {{ form_row(formAnnonce.title , { 'attr':{'placeholder':'titre de cette fameuse annonce'}}) }}
+            {#{{ form_row(formAnnonce.slug) }}#}
+            {{ form_row(formAnnonce.introduction) }}
+            {{ form_row(formAnnonce.content) }}
+            {{ form_row(formAnnonce.coverImage) }}
+            {{ form_row(formAnnonce.price) }}
+            {# {{ form_row(formAnnonce.images) }}#}
+            <button type="submit" class="btn btn-success">Modifier</button>
+            {{ form_end(formAnnonce) }}
+        </div>
+    </div>
+{% endblock %}
+

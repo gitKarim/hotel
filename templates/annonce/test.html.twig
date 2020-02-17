@@ -1,0 +1,4 @@
+{% for message in app.flashes('success')  %}
+    <h1>{{ message }}</h1>
+{% endfor %}
+{{ form(formAnnonce)}}

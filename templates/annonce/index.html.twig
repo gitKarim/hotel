@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonces Best Hotel{% endblock %}
+
+{% block body %}
+
+
+    <div style="padding: 200px ;" class="row">
+        <div class="col">
+            <div class="section_title_container text-center magic_up"
+                 style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                <div class="section_subtitle">luxury resort</div>
+                <div class="section_title">
+                    <h2>Choose a Room</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rooms">
+        <div class="container">
+            <div class="row room_row magic_up "
+                 style="visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+                {% for annonce in myannonce %}
+
+                    {% set page_detail = path("annonce_show_slug" , { 'slug': annonce.slug }) %}
+
+                    <!-- Room -->
+                    <div class="col-lg-4 room_col">
+                        <div class="room">
+                            <div class="room_image"><img alt="{{ annonce.title }}" src="{{ asset('images/blog_2.jpg') }}">
+                            </div>
+                            <div class="room_content text-center">
+                                <div class="room_price">From {{ annonce.price }} / <span>Nuit</span></div>
+                                <div class="room_type">double</div>
+                                <div class="room_title"><a href="{{ page_detail }}">{{ annonce.title }}</a></div>
+                                <div class="room_text">
+                                    <p>{{ annonce.introduction }}</p>
+                                </div>
+                                <a href="{{page_detail }}"
+                                   class="button_container room_button">
+                                    <div class="button text-center"><span class="decouvrir"> Découvrir !</span></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
