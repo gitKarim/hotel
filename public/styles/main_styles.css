@@ -316,7 +316,8 @@ section
 
 .header
 {
-	position: fixed;
+	/* aprés plusieurs problèmes d'affichage*/
+	/*position: fixed;*/
 	top: 0;
 	left: 0;
 	width: 100%;

@@ -50,7 +50,6 @@ class AppFixtures extends Fixture
             $user->setdescription($faker->paragraph(5));
             $user->setPicture( 'https://randomuser.me/api/portraits/women/'.$number.'.jpg');
             $user->setEmail($faker->email);
-
             $user->setHash($this->encoder->encodePassword($user, 'password' ));
             $user->setSlug($faker->firstName() . '-' . $faker->lastName);
 

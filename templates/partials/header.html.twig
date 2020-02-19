@@ -7,7 +7,7 @@
             <!-- Logo -->
             <div class="logo_container d-flex flex-column align-items-center justify-content-center">
                 <div class="logo">
-                    <a href="{{path('accueil')}}" class="text-center">
+                    <a href="{{ path('accueil') }}" class="text-center">
                         <div class="logo_subtitle">hotel</div>
                         <div class="logo_title">The best</div>
                         <div class="logo_stars">
@@ -28,27 +28,18 @@
                         <div class="header_inner d-flex flex-row align-items-center justify-content-start">
                             <nav class="main_nav">
                                 <ul class="d-flex flex-row align-items-center justify-content-start">
-                                    <li class="active"><a href="{{path('accueil')}}">
+                                    <li class="active"><a href="{{ path('accueil') }}">
                                             <div
                                                     class="nav_item d-flex flex-column align-items-center justify-content-center">
                                                 <span>Accueil</span></div>
                                         </a></li>
-                                  <li><a href="{{ path("new_annonce") }}">
+                                    <li><a href="{{ path("new_annonce") }}">
                                             <div
                                                     class="nav_item d-flex flex-column align-items-center justify-content-center">
                                                 <span>ajouter une annonce</span></div>
                                         </a></li>
-                                    <li><a href="rooms.html">
-                                            <div
-                                                    class="nav_item d-flex flex-column align-items-center justify-content-center">
-                                                <span>rooms</span></div>
-                                        </a></li>
-                                    <li><a href="news.html">
-                                            <div
-                                                    class="nav_item d-flex flex-column align-items-center justify-content-center">
-                                                <span>news</span></div>
-                                        </a></li>
-                                    <li><a href="contact.html">
+
+                                    <li><a href="#">
                                             <div
                                                     class="nav_item d-flex flex-column align-items-center justify-content-center">
                                                 <span>contact</span></div>
@@ -57,6 +48,10 @@
                             </nav>
                             <a href="{{ path('account_login') }}" class="button_container header_button ml-auto">
                                 <div class="button text-center"><span>Connexion</span></div>
+                            </a>
+                            <span> - </span>
+                            <a href="{{ path('account_registration') }}" class="button_container header_button ml-auto">
+                                <div class="button text-center"><span>Inscription</span></div>
                             </a>
                             <div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
                             <div class="header_review"><a href="#">Add your review</a></div>
@@ -69,7 +64,7 @@
     {% for label, messages in app.flashes %}
         <div class="container">
             <div class="alert alert-{{ label }}">
-                {% for message in messages  %}
+                {% for message in messages %}
                     {{ message }}
                 {% endfor %}
             </div>
