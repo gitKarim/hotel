@@ -66,8 +66,10 @@ class AccountController extends AbstractController
             $user->setSlug($slug);
             $user->setHash($encoder->encodePassword($user, $user->getHash()));
             $manager->flush();
-            $this->addFlash('success', 'bravo vous êtes inscris sur le site ! ');
-            return $this->redirectToRoute("account_login");
+            $this->addFlash('success', 'bravo '.$user->getFirstName().' vous êtes inscris sur le site ! ');
+            return $this->redirectToRoute("account_login" , [
+                'user' => $user
+            ]);
 
         }
 

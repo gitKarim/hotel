@@ -1,5 +1,18 @@
 {% extends 'base.html.twig' %}
-{{ form_start(form) }}
- {{ form_widget(form)}}
-<button class="btn btn-primary">S'insrire</button>
-{{ form_end(form) }}
+
+
+{% block body %}
+ <div class="container coll-md-6 p-2 m-2 " style="background-color: #b4bea8">
+  <div class=" col-md-6 container">
+   <h2>Inscription sur le site </h2>
+   {{ form_start(form) }}
+   {{ form_widget(form)}}
+   <button class="btn btn-primary">S'insrire</button>
+   {{ form_end(form) }}
+  </div>
+
+ </div>
+
+
+{% endblock %}
+
