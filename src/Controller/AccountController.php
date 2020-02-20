@@ -55,7 +55,8 @@ class AccountController extends AbstractController
     public function registration(EntityManagerInterface $manager, Request $request, UserPasswordEncoderInterface $encoder)
     {
         $user = new User();
-
+        // juste un commentaire a cet endoit pour tester le commit a partir d'une autre branche de git
+        // dans ce fichier ca sera la branche nommée "aziz" , le message de commit sera "Comment BY AZIZ"
         $slugify = new Slugify();
         $slug = $slugify->slugify($user->getFirstName(), '-');
 
