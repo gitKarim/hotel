@@ -57,6 +57,7 @@ class AccountController extends AbstractController
         $user = new User();
         // juste un commentaire a cet endoit pour tester le commit a partir d'une autre branche de git
         // dans ce fichier ca sera la branche nommée "aziz" , le message de commit sera "Comment BY AZIZ"
+        // an orher comment after install ungit with npm node
         $slugify = new Slugify();
         $slug = $slugify->slugify($user->getFirstName(), '-');
 
