@@ -57,7 +57,7 @@ class AccountController extends AbstractController
         $user = new User();
 // commentaire
         //other comment
-        //comment
+        //comment 2
         //an other comment
         // encore
         // encore
