@@ -58,6 +58,7 @@ class AccountController extends AbstractController
 // commentaire
         //other comment
         //an other comment
+        // encore
         // ajout de commenataire par la branche commenataire
         $slugify = new Slugify();
         $slug = $slugify->slugify($user->getFirstName(), '-');
