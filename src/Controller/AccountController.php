@@ -57,6 +57,7 @@ class AccountController extends AbstractController
         $user = new User();
 // commentaire
         //other comment
+        //comment
         //an other comment
         // ajout de commenataire par la branche commenataire
         $slugify = new Slugify();
